@@ -47,7 +47,7 @@ C# Doctor uses a compatible .NET host selected by the CLI for the workspace. It 
 
 **We require:** A new shell must be able to find the intended `dotnet` host and select a compatible SDK from the workspace.
 
-After C# Doctor successfully installs and verifies a `dotnetup`-managed SDK, it offers a separate optional **Configure shell PATH** action. Selecting it uses a stable per-user `dotnetup` executable to run `dotnetup env set shell --dotnetup-on-path true --install-path <verified-root>` and modifies the detected shell profile for future shells. The SDK remains ready if you skip this action or if it fails, and the action does not change the environment of the current VS Code process.
+After C# Doctor successfully installs and verifies a `dotnetup`-managed SDK, it offers a separate optional **Configure shell PATH** action. Selecting it uses a stable per-user `dotnetup` executable to run `dotnetup env set shell --dotnetup-on-path true --install-path <verified-root>`, where `<verified-root>` is the exact installation root that C# Doctor verified, and modifies the detected shell profile for future shells. The SDK remains ready if you skip this action or if it fails, and you can retry the action without reinstalling the SDK. The action does not change the environment of the current VS Code process.
 
 **Fix it:** Select **Configure shell PATH** when offered, then start a new shell and relaunch VS Code from it. As a manual fallback, inspect `which dotnet` and `dotnet --info` in a new shell, and correct your shell startup files if another installation wins `PATH`.
 
